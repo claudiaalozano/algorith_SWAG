@@ -116,3 +116,8 @@ start = timeit.default_timer() # esto es para medir el tiempo de entrenamiento
 history = model.fit(x_train, y_train, batch_size=batch_size, epochs= epochs, verbose=1, validation_data=(x_test, y_test)) # esto es para entrenar el modelo
 end= timeit.default_timer() 
 print(end-start) # con esto vemos el tiempo de entrenamiento
+
+score= model.evaluate(x_test, y_test, verbose=0) # esto es para evaluar el modelo con los datos de test
+print('Test loss:', score[0]) # esto es para ver el error de test
+print('Test accuracy:', score[1]) # esto es para ver la precisión de test
+plot_(history)
