@@ -100,3 +100,6 @@ x_test = x_test[0:number_test, :]
 
 y_train = y_train[0:number_train]
 y_test = y_test[0:number_test]
+
+
+num_clases= 10
