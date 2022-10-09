@@ -192,3 +192,46 @@ print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 plot_(history)
 
+hidden_dimention=500
+model = Sequential()
+
+in_ = Input(shape=(784,))
+
+Layer_1_Act_X_1=Dense(hidden_dimention, activation='X_1')(in_)
+################################################################
+Layer_1_Act_X_2=Dense(hidden_dimention,  activation='X_2')(in_)
+###############################################################
+Layer_1_Act_X_3=Dense(hidden_dimention,  activation='X_3')(in_)
+###############################################################
+Concatenate_First_Layer = concatenate([Layer_1_Act_X_1,Layer_1_Act_X_2,Layer_1_Act_X_3])
+################################################################
+Layer_2_Act_X_2=Dense(hidden_dimention, activation='X_2')(Concatenate_First_Layer)
+Layer_3_Act_X_2=Dense(hidden_dimention, activation='X_2')(Layer_2_Act_X_2)
+Layer_4_Act_X_2=Dense(hidden_dimention, activation='X_2')(Layer_3_Act_X_2)
+Layer_5_Act_X_2=Dense(hidden_dimention, activation='X_2')(Layer_4_Act_X_2)
+Layer_6_Act_X_2=Dense(hidden_dimention, activation='X_2')(Layer_5_Act_X_2)
+Layer_8_Act_X_2=Dense(hidden_dimention, activation='X_2')(Layer_6_Act_X_2)
+
+Concatenate_All_Layer = concatenate([in_,Layer_1_Act_X_1,Layer_1_Act_X_2,Layer_1_Act_X_3,Layer_2_Act_X_2,Layer_3_Act_X_2])
+
+
+Out_put=Dense(10, activation='linear')(Concatenate_All_Layer)
+
+model = Model(in_ , Out_put)
+
+model.summary()
+
+optimizer =Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+
+model.compile(loss='mean_squared_error', optimizer=optimizer,metrics=['accuracy'])
+
+start = timeit.default_timer()
+history = model.fit(x_train, y_train,batch_size=batch_size,epochs=epochs,verbose=1,validation_data=(x_test, y_test))
+end = timeit.default_timer()
+print(end-start)
+
+
+score = model.evaluate(x_test, y_test, verbose=0)
+print('Test loss:', score[0])
+print('Test accuracy:', score[1])
+plot_(history)
