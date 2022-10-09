@@ -109,3 +109,6 @@ model.add(Dense(1024, activation='relu'))
 model.add(Dense(num_classes, activation='softmax')) # esto es la capa de salida que tiene 10 neuronas,lo que hemos establecido en num_classes
 
 model.summary() # esto es para ver el resumen del modelo que hemos creado
+optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False) # esto es el optimizador que usaremos para entrenar el modelo
+
+model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['accuracy']) # esto es para compilar el modelo 
