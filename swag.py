@@ -1,3 +1,4 @@
+from tabnanny import verbose
 import timeit
 from keras.model import Model, Sequential
 from keras.layers import Input, Embedding, LSTM, Dense, concatenate, Dropout, Flatten, Conv2D, MaxPool12D, Activation, MaxPooling2D
@@ -120,4 +121,31 @@ print(end-start) # con esto vemos el tiempo de entrenamiento
 score= model.evaluate(x_test, y_test, verbose=0) # esto es para evaluar el modelo con los datos de test
 print('Test loss:', score[0]) # esto es para ver el error de test
 print('Test accuracy:', score[1]) # esto es para ver la precisión de test
+plot_(history)
+
+hidden_dimention = 500
+model = Sequential()
+in_ = Input(shape=(784,))
+
+Layer_1_Act_X_1 = Dense(hidden_dimention, activation='X_1')(in_)
+Layer_1_Act_X_2 = Dense(hidden_dimention, activation='X_2')(in_)
+Layer_1_Act_X_3 = Dense(hidden_dimention, activation='X_3')(in_)
+
+Concatenate_All_Layer = concatenate([in_,Layer_1_Act_X_1, Layer_1_Act_X_2, Layer_1_Act_X_3])
+
+Out_Put = Dense(10, activation='linear')(Concatenate_All_Layer)
+model = Model(in_, Out_Put)
+model.summary()
+
+optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+
+model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['accuracy'])
+start = timeit.default_timer()
+history = model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, verbose=1, validation_data=(x_test, y_test))
+end = timeit.default_timer()
+print(end-start)
+
+score = model.evaluate(x_test, y_test, verbose=0)
+print('Test loss: ', score[0])
+print('Test accuracy: ', score[1])
 plot_(history)
