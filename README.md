@@ -1,5 +1,5 @@
 # algorith_SWAG
-Nuestra dirección de Github es:
+Nuestra dirección de Github es: https://github.com/claudiaalozano/algorith_SWAG.git
 
 En este trabajo hemos elaborado un algoritmo Swag y una conclusión sobre el paper propuesto.
 
