@@ -103,3 +103,7 @@ y_test = y_test[0:number_test]
 
 
 num_clases= 10
+model = Sequential() # esto es un modelo secuencial
+model.add(Dense(1024, activation='relu', input_shape=(784,))) # esto es una capa densa que sirve para conectar las neuronas
+model.add(Dense(1024, activation='relu')) 
+model.add(Dense(num_classes, activation='softmax')) # esto es la capa de salida que tiene 10 neuronas,lo que hemos establecido en num_classes
