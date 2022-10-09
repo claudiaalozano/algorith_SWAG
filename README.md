@@ -17,6 +17,7 @@ En esta tarea se nos presenta un paper el cual debemos analizar y sacar conclusi
 4. [Carlota](https://github.com/crltsnch)
 5. [Claudia](https://github.com/claudiaalozano)
 
+***
 
 ## Conclusiones:
 
