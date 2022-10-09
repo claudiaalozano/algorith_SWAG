@@ -20,7 +20,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import seaborn as sns
-%matplotlib inline
+
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 import itertools
@@ -37,3 +37,36 @@ def plot_(history):
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.show();
+
+def x1(x):
+    return (K.pow(x,1))
+get_custom_objects().update({"x1": Activation(x1)})
+
+def x2(x):
+    return(K.pow(x,2))/2
+get_custom_objects().update({"x2": Activation(x2)})
+
+def x3(x):
+    return(K.pow(x,3))/6
+get_custom_objects().update({"x3": Activation(x3)})
+
+def x4(x):
+    return(K.pow(x,4))/24
+get_custom_objects().update({"x4": Activation(x4)})
+
+def x5(x):
+    return(K.pow(x,5))/120
+get_custom_objects().update({"x5": Activation(x5)})
+
+def x6(x):
+    return(K.pow(x,6))/720
+get_custom_objects().update({"x6": Activation(x6)})
+
+def x7(x):
+    return(K.pow(x,7))/5040
+get_custom_objects().update({"x7": Activation(x7)})
+
+def x8(x):
+    return(K.pow(x,8))/40320
+get_custom_objects().update({"x8": Activation(x8)})
+
