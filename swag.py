@@ -70,3 +70,33 @@ def x8(x):
     return(K.pow(x,8))/40320
 get_custom_objects().update({"x8": Activation(x8)})
 
+
+batch_size = 128
+num_classes = 10
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+x_train = x_train.reshape(60000, 784)
+x_test = x_test.reshape(10000, 784)
+
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+
+x_train = x_train+10
+x_test = x_test+10
+
+x_train /= 300
+x_test /= 300
+print(x_train.shape[0], 'train samples')
+print(x_test.shape[0], 'test samples')
+
+y_train = to_categorical(y_train, num_classes)
+y_test = to_categorical(y_test, num_classes)
+
+number_train = 60000
+number_test = 10000
+
+x_train = x_train[0:number_train, :]
+x_test = x_test[0:number_test, :]
+
+y_train = y_train[0:number_train]
+y_test = y_test[0:number_test]
