@@ -113,3 +113,6 @@ optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, am
 
 model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['accuracy']) # esto es para compilar el modelo 
 start = timeit.default_timer() # esto es para medir el tiempo de entrenamiento
+history = model.fit(x_train, y_train, batch_size=batch_size, epochs= epochs, verbose=1, validation_data=(x_test, y_test)) # esto es para entrenar el modelo
+end= timeit.default_timer() 
+print(end-start) # con esto vemos el tiempo de entrenamiento
