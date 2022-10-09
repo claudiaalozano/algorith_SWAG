@@ -1,4 +1,4 @@
-from tabnanny import verbose
+
 import timeit
 from keras.model import Model, Sequential
 from keras.layers import Input, Embedding, LSTM, Dense, concatenate, Dropout, Flatten, Conv2D, MaxPool12D, Activation, MaxPooling2D
