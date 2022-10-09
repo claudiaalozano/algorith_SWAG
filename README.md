@@ -1,4 +1,4 @@
-<h1 align="center">Swag algotith</h1>
+<h1 align="center">Swag algorithm</h1>
 
 <h2>Repositorio:</h2>
 
