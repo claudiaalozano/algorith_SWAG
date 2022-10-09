@@ -112,3 +112,4 @@ model.summary() # esto es para ver el resumen del modelo que hemos creado
 optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False) # esto es el optimizador que usaremos para entrenar el modelo
 
 model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['accuracy']) # esto es para compilar el modelo 
+start = timeit.default_timer() # esto es para medir el tiempo de entrenamiento
