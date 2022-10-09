@@ -1,4 +1,3 @@
-import swag
+from swag import swag_main
 if __name__ == '__main__':
-    from swag import swag_main
-    print(swag_main())
+    swag_main()
