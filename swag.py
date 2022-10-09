@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import seaborn as sns
 %matplotlib inline
-from sklearn.moder_selection import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 import itertools
 
